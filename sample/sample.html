@@ -1,0 +1,25 @@
+<!DOCTYPE>
+
+<html>
+<header>
+    <title>elfinder popup sample</title>
+</header>
+<body>
+<input type="text" id="finder" name="" value="">
+<button type="button" class="browse">browse</button>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../elfinder.popup.js"></script>
+<script>
+    $('button.browse').click(function(){
+        var that = $(this);
+        var find = new elfinderPopup({
+            'getFileCallback':function(file){
+                that.prev().val(file.url);
+            }
+        });
+        find.popup();
+    });
+</script>
+</body>
+</html>
